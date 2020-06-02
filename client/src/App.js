@@ -1,24 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Header from "./components/Header/header";
+
+const Landing = () => <h1>Landing</h1>;
+const Surveys = () => <h1>Surveys</h1>;
+const SurveysNew = () => <h1>Surveys New</h1>;
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <>
+          <Header />
+          <Switch>
+            <Route exact path="/" component={Landing} />
+            <Route exact path="/surveys" component={Surveys} />
+            <Route path="/surveys/new" component={SurveysNew} />
+          </Switch>
+        </>
+      </BrowserRouter>
     </div>
   );
 }
