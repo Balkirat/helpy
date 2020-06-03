@@ -10,7 +10,7 @@ const SurveysNew = () => <h1>Surveys New</h1>;
 
 function App() {
   return (
-    <div className="App">
+    <div className="App ">
       <BrowserRouter>
         <>
           <Header />

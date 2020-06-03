@@ -6,9 +6,12 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import reducers from './reducers';
+import materializeCSS from 'materialize-css/dist/css/materialize.min.css'
+import reduxThunk from 'redux-thunk';
 
 
-const store = createStore(reducers, {}, applyMiddleware());
+
+const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 
 ReactDOM.render(
   <React.StrictMode>
