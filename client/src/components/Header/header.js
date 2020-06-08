@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import Payments from "../StripeWrapper/stripeWrapper";
 
 class Header extends Component {
   renderContent() {
@@ -15,10 +16,13 @@ class Header extends Component {
         );
       default:
         return (
+          [
+            <li><Payments /></li>,
           <li>
             <a href="/api/logout">Log Out</a>
           </li>
-        );
+          ]
+        )
     }
   }
 
@@ -31,7 +35,7 @@ class Header extends Component {
             to={this.props.auth ? "/surveys" : "/"}
             className="left brand-logo"
           >
-            Emaily
+            Helpy
           </Link>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
             {this.renderContent()}
